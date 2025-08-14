@@ -93,12 +93,12 @@ func generateKubeconfig(clusterEndpoint pulumi.StringOutput, certData pulumi.Str
                         "--cluster-name",
                         "%s",
                     ],
-					"env": [
-						{
-							"name": "AWS_PROFILE",
-							"value": "%s",
-						}
-					],
+                    "env": [
+                        {
+                            "name": "AWS_PROFILE",
+                            "value": "%s",
+                        }
+                    ],
                 },
             },
         }],
