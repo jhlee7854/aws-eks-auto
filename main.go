@@ -41,7 +41,7 @@ func main() {
 
 		kubeconfig := generateKubeconfig(cluster.Endpoint, cluster.CertificateAuthority.Data().Elem(), cluster.Name, pulumi.String(config.New(ctx, "aws").Require("profile")).ToStringOutput())
 
-		k8sProvider, err := kubernetes.NewProvider(ctx, "k8sporivder", &kubernetes.ProviderArgs{
+		k8sProvider, err := kubernetes.NewProvider(ctx, "k8sprovider", &kubernetes.ProviderArgs{
 			Kubeconfig: kubeconfig,
 		}, pulumi.DependsOn([]pulumi.Resource{cluster}))
 		if err != nil {
