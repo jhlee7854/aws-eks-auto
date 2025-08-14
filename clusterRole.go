@@ -19,6 +19,6 @@ func createClusterRole(ctx *pulumi.Context, opts ...pulumi.ResourceOption) (*iam
 			pulumi.String("arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy"),
 			pulumi.String("arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy"),
 		},
-		Name: pulumi.String("AmazonEKSAutoClusterRole"),
+		Name: pulumi.Sprintf("%sAmazonEKSAutoClusterRole", ctx.Stack()),
 	}, opts...)
 }

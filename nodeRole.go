@@ -14,8 +14,8 @@ func createNodeRole(ctx *pulumi.Context, opts ...pulumi.ResourceOption) (*iam.Ro
 		Description:      pulumi.String("Allows EKS nodes to connect to EKS Auto Mode clusters and to pull container images from ECR."),
 		ManagedPolicyArns: pulumi.StringArray{
 			pulumi.String("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly"),
-			pulumi.String("arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy"),
+			pulumi.String("arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"),
 		},
-		Name: pulumi.String("AmazonEKSAutoNodeRole"),
+		Name: pulumi.Sprintf("%sAmazonEKSAutoNodeRole", ctx.Stack()),
 	}, opts...)
 }
