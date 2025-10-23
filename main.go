@@ -54,9 +54,11 @@ func main() {
 		}
 
 		ctx.Export("clusterName", cluster.Name)
-		ctx.Export("kubeconfig", kubeconfig)
+		// ctx.Export("kubeconfig", kubeconfig)
 		ctx.Export("oidcpUrl", oidcp.Url)
 		ctx.Export("oidcpId", oidcp.Arn)
+		ctx.Export("certData", cluster.CertificateAuthority.Data())
+		ctx.Export("clusterEndpoint", cluster.Endpoint)
 
 		return nil
 	})

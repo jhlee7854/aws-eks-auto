@@ -1,0 +1,13 @@
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: network-policy-enabled
+spec:
+  networkPolicy: DefaultAllow
+  networkPolicyEventLogs: Enabled
+  role: jonghakAmazonEKSAutoNodeRole
+  securityGroupSelectorTerms:
+  - id: sg-06aad8d871b8bd814
+  subnetSelectorTerms:
+  - id: subnet-03c63341b86a0f3d9
+  - id: subnet-0ced0c8286fe841a9

@@ -18,7 +18,7 @@ func createEksCluster(ctx *pulumi.Context, subnetIds pulumi.StringArrayOutput, c
 		ComputeConfig: &eks.ClusterComputeConfigArgs{
 			Enabled: pulumi.Bool(true),
 			NodePools: pulumi.StringArray{
-				pulumi.String("general-purpose"),
+				// pulumi.String("general-purpose"),
 				pulumi.String("system"),
 			},
 			NodeRoleArn: nodeRoleArn,
@@ -47,7 +47,7 @@ func createEksCluster(ctx *pulumi.Context, subnetIds pulumi.StringArrayOutput, c
 		UpgradePolicy: &eks.ClusterUpgradePolicyArgs{
 			SupportType: pulumi.String("STANDARD"),
 		},
-		Version: pulumi.String("1.31"),
+		Version: pulumi.String("1.33"),
 		VpcConfig: &eks.ClusterVpcConfigArgs{
 			EndpointPrivateAccess: pulumi.Bool(true),
 			PublicAccessCidrs: pulumi.StringArray{
